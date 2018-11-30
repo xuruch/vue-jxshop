@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>管理中心 - 数据列表 </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/Styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/Styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="/article_category/create">添加新记录</a></span>
+    <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 数据列表 </span>
+    <div style="clear:both"></div>
+</h1>
+
+<div class="list-div" id="listDiv">
+    <table cellpadding="3" cellspacing="1">
+        <tr>
+                        <th>ID</th>
+                        <th>分类名称</th>
+                        <th>操作</th>
+        </tr>
+        <?php foreach($data as $v): ?>        <tr>
+                        <td><?=$v['id']?></td>
+                        <td><?=$v['cat_name']?></td>
+                        <td>
+                <a href="/article_category/edit?id=<?=$v['id']?>">修改</a>
+                <a onclick="return confirm('确定要删除吗？');" href="/article_category/delete?id=<?=$v['id']?>">删除</a>
+            </td>
+        </tr>
+        <?php endforeach; ?>    </table>
+
+<!-- 分页开始 -->
+    <table id="page-table" cellspacing="0">
+        <tr>
+            <td width="80%">&nbsp;</td>
+            <td align="center" nowrap="true">
+                <?=$page?>            </td>
+        </tr>
+    </table>
+<!-- 分页结束 -->
+</div>
+
+<?=view('common/footer')?></body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>管理中心 - 添加新记录</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/Styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>
+        <span class="action-span"><a href="/article/index">数据列表</a></span>
+        <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
+        <span id="search_id" class="action-span1"> - 添加新记录 </span>
+        <div style="clear:both"></div>
+    </h1>
+    <div class="main-div">
+        <form action="/article/insert" method="post" enctype="multipart/form-data">
+            <table width="100%" id="general-table">
+                <tr>
+                    <td class="label">标题:</td>
+                    <td>
+                        <input type='text' size="80" name='title'>
+                        <font color="red">*</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">文章内容:</td>
+                    <td>
+                        <textarea name="content" id="" cols="80" rows="10"></textarea>
+                        <font color="red">*</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">跳转的地址:</td>
+                    <td>
+                        <input type='text' size="80" name='link'>
+                        <font color="red">*</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">关联分类:</td>
+                    <td>
+                        <select name="article_category_id">
+                            <option value="">选择分类</option>
+                            <?php foreach($data as $v): ?>
+                            <option value="<?=$v['id']?>"><?=$v['cat_name']?>></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <font color="red">*</font>
+                    </td>
+                </tr>
+            </table>
+            <div class="button-div">
+                <input type="submit" value=" 确定 " />
+                <input type="reset" value=" 重置 " />
+            </div>
+        </form>
+    </div>
+    <?=view('common/footer')?>
+</body>
+
+</html>

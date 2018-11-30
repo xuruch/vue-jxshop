@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<title>管理中心 - 修改数据 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/Styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/Styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>
+    <span class="action-span"><a href="/role/index">数据列表</a></span>
+    <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 修改数据 </span>
+    <div style="clear:both"></div>
+</h1>
+<div class="main-div">
+    <form action="/role/update?id=<?=$data['id']?>" method="post" enctype="multipart/form-data">
+        <table width="100%" id="general-table">
+                        <tr>
+                <td class="label">角色名称:</td>
+                <td>
+                                            <input type='text' size="80" name='role_name' value='<?=$data['role_name']?>'>
+                                        <font color="red">*</font>
+                </td>
+            </tr>
+                    </table>
+        <div class="button-div">
+            <input type="submit" value=" 确定 " />
+            <input type="reset" value=" 重置 " />
+        </div>
+    </form>
+</div>
+
+<?=view('common/footer')?>
+</body>
+</html>

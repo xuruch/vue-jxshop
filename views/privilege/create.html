@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>管理中心 - 添加新记录</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/Styles/general.css" rel="stylesheet" type="text/css" />
+    <link href="/Styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1>
+        <span class="action-span"><a href="/privilege/index">数据列表</a></span>
+        <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
+        <span id="search_id" class="action-span1"> - 添加新记录 </span>
+        <div style="clear:both"></div>
+    </h1>
+    <div class="main-div">
+        <form action="/privilege/insert" method="post" enctype="multipart/form-data">
+            <table width="100%" id="general-table">
+                                <tr>
+                    <td class="label">权限名称:</td>
+                    <td>
+                                                    <input type='text' size="80" name='pri_name'>
+                                                <font color="red">*</font>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="label">对应的URL地址，多个地址用,隔开:</td>
+                    <td>
+                                                    <input type='text' size="80" name='url_path'>
+                                                <font color="red">*</font>
+                    </td>
+                </tr>
+                                <tr>
+                    <td class="label">上级权限的ID:</td>
+                    <td>
+                                                    <input type='text' size="80" name='parent_id'>
+                                                <font color="red">*</font>
+                    </td>
+                </tr>
+                            </table>
+            <div class="button-div">
+                <input type="submit" value=" 确定 " />
+                <input type="reset" value=" 重置 " />
+            </div>
+        </form>
+    </div>
+    <?=view('common/footer')?></body>
+</html>

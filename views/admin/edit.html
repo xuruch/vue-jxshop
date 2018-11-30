@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<title>管理中心 - 修改数据 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="/Styles/general.css" rel="stylesheet" type="text/css" />
+<link href="/Styles/main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>
+        <span class="action-span"><a href="/admin/index">数据列表</a></span>
+        <span class="action-span1"><a href="__GROUP__">管理中心</a></span>
+        <span id="search_id" class="action-span1"> - 修改数据 </span>
+        <div style="clear:both"></div>
+    </h1>
+    <div class="main-div">
+        <form action="/admin/update?id=<?=$data['id']?>" method="post" enctype="multipart/form-data">
+            <table width="100%" id="general-table">
+                <tr>
+                    <td class="label">用户名:</td>
+                    <td>
+                        <input type='text' size="80" name='username' value='<?=$data['username']?>'>
+                        <font color="red">*</font>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label">密码:</td>
+                    <td>
+                        <input type='text' size="80" name='password' value='<?=$data['password']?>'>
+                        <font color="red">*</font>
+                    </td>
+                </tr>
+            </table>
+            <h3>选择角色</h3>
+            <table width="100%" id="general-table">
+                <tr>
+                    <td class="label">角色列表:</td>
+                    <td> 
+                        <?php foreach($roleAll['roleAll'] as $v): ?>
+                            <input <?php if($v['id']==$roleAll['role_id']['id']) echo "checked" ?> type="checkbox" id="admin_id" name="role_id[]" value="<?=$v['id']?>">
+                            <?=$v['role_name']?> <br><br>
+                        <?php endforeach; ?>
+                    </td>
+                </tr>
+            </table>
+            <div class="button-div">
+                <input type="submit" value=" 确定 " />
+                <input type="reset" value=" 重置 " />
+            </div>
+        </form>
+    </div>
+
+    <?=view('common/footer')?>
+</body>
+</html>
+<script src="/Js/jquery.min.js"></script>
+<script>
+    
+    var admin_id = $("#admin_id").val()
+    // console.log(admin_id)
+    $.ajax({
+        type:'GET',
+        url:'/admin/ajax_edit_admin_id?id='+admin_id,
+        dataType:'JSON',
+        success:function(data){
+
+        }
+    })
+
+</script>
